@@ -1,22 +1,40 @@
-export const invoice = {
-    id: 1,
-    name: "Abdiel",
-    client: {
-        name: "Pepe",
-        lasName: "Doe",
-        address: {
-            country: "USA",
-            city: "Boston",
-            street: "Amalucan",
-            number: 2
+
+    export const invoice = {
+        id: 10,
+        name: 'Componentes PC',
+        client: {
+            name: 'Pepe',
+            lastName: 'Doe',
+            address: {
+                country: 'USA',
+                city: 'Los Angeles',
+                street: 'One Street',
+                number: 12
+            }
         },
         company: {
-            name: "Negocios chuecos Inc.",
-            fiscalNumber: 1233445
+            name: 'Abdiels Inc.',
+            fiscalNumber: 1234567,
         },
         items: [
-            
+            {
+                id: 1,
+                product: 'Cpu Intel i7',
+                price: 499,
+                quantity: 1,
+            },
+            {
+                id: 2,
+                product: 'Corsair Keyboard Mecanico',
+                price: 150,
+                quantity: 1,
+            },
+            {
+                id: 3,
+                product: 'Monitor Asus',
+                price: 350,
+                quantity: 1,
+            },
         ]
     }
 
-}
