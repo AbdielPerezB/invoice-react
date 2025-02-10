@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-export const LIstItemView = ({ tittle, items }) => {
+import { TotalView } from "./TotalView";
+export const LIstItemView = ({ tittle, items, total }) => {
     return (
         <>
             <h3>{tittle}</h3>
@@ -26,6 +27,7 @@ export const LIstItemView = ({ tittle, items }) => {
                     }
                 </tbody>
             </table>
+            <TotalView total={total} />
         </>
     );
 }

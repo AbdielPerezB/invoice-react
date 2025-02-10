@@ -5,7 +5,7 @@ import { InvoiceView } from "./components/InvoiceView";
 import { LIstItemView } from "./components/ListItemView";
 
 export const InvoiceApp = () => {
-    const { id, name, client, company, items } = getInvoice();
+    const { total, id, name, client, company, items } = getInvoice();
     return (
         <>
             <div className="container">
@@ -26,7 +26,9 @@ export const InvoiceApp = () => {
                             </div>
 
                         </div>
-                        <LIstItemView tittle="Productos de la factura" items={items} />
+                        <LIstItemView tittle="Productos de la factura"
+                            items={items}
+                            total={total} />
                     </div>
                 </div>
             </div>
