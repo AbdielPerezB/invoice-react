@@ -28,6 +28,7 @@ export const LIstItemView = ({ tittle, items, total }) => {
                 </tbody>
             </table>
             <TotalView total={total} />
+
         </>
     );
 }
