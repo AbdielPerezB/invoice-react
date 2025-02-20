@@ -87,6 +87,7 @@ export const InvoiceApp = () => {
                             items={items}
                             total={total} />
                             {/* newItem es el mismo objeto que formItemsState en FormItemsView */}
+                        <button>{'Agregar Item'}</button>
                         <FormItemsView handler={newItem => handlerAddInvoiceItems(newItem)}/>
                     </div>
                 </div>
