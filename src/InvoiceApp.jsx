@@ -44,24 +44,29 @@ export const InvoiceApp = () => {
         setItems(data.items);//llenamos los items con los nuevos datos que obtuvimos
     }, []);
 
-
-
     //actualizar el total con useEffect
     useEffect(() => {
         setTotal(calculateTotal(items))
     }, [items])
 
-    const handlerAddInvoiceItems = ({product, price, quantity}) => {
-        
+    const handlerAddInvoiceItems = ({ product, price, quantity }) => {
+
         setItems([...items, {
             id: idValue,
             product: product.trim(),
             price: parseFloat(price.trim()),
             quantity: parseInt(quantity.trim(), 10)
         }])
-     
+
         setId(idValue + 1)
     }
+
+    //Ocultar/mostrar form add product
+    const [formActivated, setFormActivated] = useState(false);
+
+    const onActiveForm = () => {
+        setFormActivated(!formActivated)
+    };
 
     return (
         <>
@@ -86,9 +91,15 @@ export const InvoiceApp = () => {
                         <LIstItemView tittle="Productos de la factura"
                             items={items}
                             total={total} />
-                            {/* newItem es el mismo objeto que formItemsState en FormItemsView */}
-                        <button>{'Agregar Item'}</button>
-                        <FormItemsView handler={newItem => handlerAddInvoiceItems(newItem)}/>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={onActiveForm}
+                        >{!formActivated ? 'Agregar Item' : 'Ocultar formulario'}</button>
+                        {/* {!formActivated ? '' : <FormItemsView handler={newItem => handlerAddInvoiceItems(newItem)} />} */}
+                        {!formActivated || <FormItemsView handler={newItem => handlerAddInvoiceItems(newItem)} />}{/* newItem es el mismo objeto que formItemsState en FormItemsView  */}
+                        {/* Las dos formas de arriba son lo mismo, a la de abajo se le conoce como operador terniario simplificado.
+                        Se interpreta como: Si es falso -> imprime falso, es decir, no imprime nada.
+                        Si es verdadera imprime <FormItemsView .../> */}
                     </div>
                 </div>
             </div>
