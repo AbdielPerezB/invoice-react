@@ -68,6 +68,10 @@ export const InvoiceApp = () => {
         setFormActivated(!formActivated)
     };
 
+    const handleDeletItem = (id) => {
+        setItems(items.filter(item =>item.id !== id));
+    };
+
     return (
         <>
             <div className="container">
@@ -90,7 +94,10 @@ export const InvoiceApp = () => {
                         </div>
                         <LIstItemView tittle="Productos de la factura"
                             items={items}
-                            total={total} />
+                            total={total}
+                            handleDeletItem = {(id) => handleDeletItem(id)} />
+                            {/* (id) -> es lo que recibimos del hijo, handleDeletItem(id)-> este id es el
+                                                                        qu ele pasamos por parámetro a la función */}
                         <button
                             className="btn btn-secondary"
                             onClick={onActiveForm}
